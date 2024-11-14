@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="EN-us">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+        <title>Data Passing</title>
+
+        <meta name="title" content="Data Passing">
+        <meta name="description" content="Data passing between C and JavaScript through WASM">
+        <meta name="keywords" content="WASM, C, JavaScript">
+        <meta name="viewport" content="width=device-width">
+    </head>
+    <body>
+        <script>
+         var Module = {
+             print: (function() {
+                 return function(text) {
+                     if (arguments.length > 1) text = Array.prototype.slice.call(arguments).join(' ');
+                     console.log(text);
+                 };
+             })()
+         };
+        </script>
+        <script src="glup.js"></script>
+    </body>
+</html>
